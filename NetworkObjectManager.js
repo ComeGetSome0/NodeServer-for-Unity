@@ -1,6 +1,7 @@
 const UnityInstance = require('./UnityInstance');
 let m_NetworkObjects = [];
 
+
 function getObjects() {
     return m_NetworkObjects;
 }
