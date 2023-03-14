@@ -109,17 +109,17 @@ function parseInstantiate(socket, data) {
  * @param {Buffer[]} data 
  */
 function parseSyncTransform(socket, data) {
-    // Just uncomment above lines if you want to see the data between sockets
-    // const byteReader = new ByteReader(data);
-    // const messageType = byteReader.readByte();
-    // const clientID = byteReader.readInt();
     
-    // const localID = byteReader.readInt();
-    // const position = byteReader.readVector3();
-    // const rotation = byteReader.readQuaternion();
-    // const positionStr = `Vector3 (x: ${position.x}, y: ${position.y}, z: ${position.z})`;
-    // const rotationStr = `Quaternion (x: ${rotation.x}, y: ${rotation.y}, z: ${rotation.z}, w: ${rotation.w})`;
-    // console.log(`Sync Transform\nLocalID: ${localID}\nPosition: ${positionStr}\nRotation: ${rotationStr}`);
+     const byteReader = new ByteReader(data);
+     const messageType = byteReader.readByte();
+     const clientID = byteReader.readInt();
+    
+     const localID = byteReader.readInt();
+     const position = byteReader.readVector3();
+     const rotation = byteReader.readQuaternion();
+     const positionStr = `Vector3 (x: ${position.x}, y: ${position.y}, z: ${position.z})`;
+     const rotationStr = `Quaternion (x: ${rotation.x}, y: ${rotation.y}, z: ${rotation.z}, w: ${rotation.w})`;
+     console.log(`Sync Transform\nLocalID: ${localID}\nPosition: ${positionStr}\nRotation: ${rotationStr}`);
 
     broadcast(data, socket);
 }
